@@ -1,5 +1,5 @@
 <?php
-    // session_start();
+    session_start();
     include_once "config.php";
     $fname = mysqli_real_escape_string($conn, $_POST['fname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
@@ -29,7 +29,7 @@
                         if(move_uploaded_file($tmp_name, "images/".$nem_img_name)){
 
                             $status = "Active now";
-                            $random_id = ran(time(), 10000000);
+                            $random_id = rand(time(), 10000000);
 
                             $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, password, img, status)
                                                         VALUES ({$random_id}, '{$fname}', '{$lname}', '{$email}', '{$password}', '{$nem_img_name}', '{$status}')");
