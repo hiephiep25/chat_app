@@ -28,7 +28,7 @@
                             </div>';
                 }
             }
-            echo $output;
+            echo $output;   
         }
     }else{
         header("../login.php");
